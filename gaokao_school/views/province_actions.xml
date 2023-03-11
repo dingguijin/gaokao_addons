@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+  <record id="province_action" model="ir.actions.act_window">
+    <field name="name">Province</field>
+    <field name="res_model">gaokao.province</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Looks like nothing is planned.
+        </p><p>
+        Import data into db.
+      </p>
+    </field>
+  </record>
+
+    <record id="province_view_tree" model="ir.ui.view">
+        <field name="name">gaokao.province.tree</field>
+        <field name="model">gaokao.province</field>
+        <field name="arch" type="xml">
+            <tree string="" multi_edit="1" sample="1">
+                <header>
+                    <button name="reload_data" string="Reload" type="object" display="always"/>
+                </header>
+
+                <field name="name"/>
+                <field name="province_id" />
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="province_view_form" model="ir.ui.view">
+        <field name="name">gaokao.province.form</field>
+        <field name="model">gaokao.province</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name"/>
+                <field name="province_id"/>
+            </form>
+        </field>
+    </record>
+
+  <record id="province_action_view_tree" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="province_view_tree"/>
+    <field name="act_window_id" ref="province_action"/>
+  </record>
+
+  <record id="province_action_view_form" model="ir.actions.act_window.view">
+    <field name="sequence" eval="2"/>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="province_view_form"/>
+    <field name="act_window_id" ref="province_action"/>
+  </record>
+
+</odoo>

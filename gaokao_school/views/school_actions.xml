@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+  <record id="school_action" model="ir.actions.act_window">
+    <field name="name">School</field>
+    <field name="res_model">gaokao.school</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Looks like nothing is planned.
+        </p><p>
+        Import Strategys into db.
+      </p>
+    </field>
+  </record>
+
+    <record id="school_view_tree" model="ir.ui.view">
+        <field name="name">gaokao.school.tree</field>
+        <field name="model">gaokao.school</field>
+        <field name="arch" type="xml">
+            <tree string="" multi_edit="1" sample="1" js_class="gaokao_school_tree">
+                <header>
+                    <button name="reload_school_data" string="Reload Header" type="object" display="always"/>
+                </header>
+
+                <field name="name"/>
+                <field name="belong"/>
+                <field name="province_name" />
+                <field name="is_211" />
+                <field name="is_985" />
+                <field name="is_dual" />
+                <field name="is_admission" />
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="school_view_form" model="ir.ui.view">
+        <field name="name">gaokao.school.form</field>
+        <field name="model">gaokao.school</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name"/>
+            </form>
+        </field>
+    </record>
+
+  <record id="school_action_view_tree" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="school_view_tree"/>
+    <field name="act_window_id" ref="school_action"/>
+  </record>
+
+  <record id="school_action_view_form" model="ir.actions.act_window.view">
+    <field name="sequence" eval="2"/>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="school_view_form"/>
+    <field name="act_window_id" ref="school_action"/>
+  </record>
+
+</odoo>

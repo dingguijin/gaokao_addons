@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gaokao_school_user,gaokao.school.user,model_gaokao_school,group_gaokao_user,1,1,1,1
+access_gaokao_school_manager,gaokao.school.manager,model_gaokao_school,group_gaokao_manager,1,1,1,1
+access_gaokao_province_user,gaokao.school.user,model_gaokao_province,group_gaokao_user,1,1,1,1
+access_gaokao_province_manager,gaokao.school.manager,model_gaokao_province,group_gaokao_manager,1,1,1,1
+access_gaokao_pcontrol_user,gaokao.school.user,model_gaokao_province_control,group_gaokao_user,1,1,1,1
+access_gaokao_pcontrol_manager,gaokao.school.manager,model_gaokao_province_control,group_gaokao_manager,1,1,1,1
+access_gaokao_school_score_user,gaokao.school.user,model_gaokao_school_score,group_gaokao_user,1,1,1,1
+access_gaokao_school_score_manager,gaokao.school.manager,model_gaokao_school_score,group_gaokao_manager,1,1,1,1
+access_gaokao_sp_score_user,gaokao.school.user,model_gaokao_sp_score,group_gaokao_user,1,1,1,1
+access_gaokao_sp_score_manager,gaokao.school.manager,model_gaokao_sp_score,group_gaokao_manager,1,1,1,1
