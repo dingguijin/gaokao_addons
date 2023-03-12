@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_plan_search_view" model="ir.ui.view">
+        <field name="name">gaokao.school_plan.search</field>
+        <field name="model">gaokao.school_plan</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter string="year" name="year" context="{'group_by': 'year'}" />
+                    <filter string="省" name="province_name" context="{'group_by': 'province_name'}" />
+                    <filter string="学校" name="school_name" context="{'group_by': 'school_name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+  <record id="school_plan_action" model="ir.actions.act_window">
+    <field name="name">院校招生计划</field>
+    <field name="res_model">gaokao.school_plan</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Looks like nothing is planned.
+        </p><p>
+        Import data into db.
+      </p>
+    </field>
+  </record>
+
+    <record id="school_plan_view_tree" model="ir.ui.view">
+        <field name="name">gaokao.school_plan.tree</field>
+        <field name="model">gaokao.school_plan</field>
+        <field name="arch" type="xml">
+            <tree string="" multi_edit="1" sample="1">
+                <header>
+                    <button name="reload_data" string="Reload" type="object" display="always"/>
+                </header>
+
+                <field name="school_name"/>
+                <field name="year"/>
+                <field name="province_name" />
+                <field name="school_province_name" />
+                <field name="school_belong" />
+                <field name="school_is211" />
+                <field name="school_is985" />
+                <field name="school_isdual" />
+                <field name="school_isadmission" />
+                <field name="num" />
+                <field name="spcode" />
+                <field name="spname" />
+                <field name="length" />
+                <field name="tuition" />
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="school_plan_view_form" model="ir.ui.view">
+        <field name="name">gaokao.school_plan.form</field>
+        <field name="model">gaokao.school_plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name"/>
+            </form>
+        </field>
+    </record>
+
+  <record id="school_plan_action_view_tree" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="school_plan_view_tree"/>
+    <field name="act_window_id" ref="school_plan_action"/>
+  </record>
+
+  <record id="school_plan_action_view_form" model="ir.actions.act_window.view">
+    <field name="sequence" eval="2"/>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="school_plan_view_form"/>
+    <field name="act_window_id" ref="school_plan_action"/>
+  </record>
+
+</odoo>

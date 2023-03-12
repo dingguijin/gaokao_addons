@@ -21,21 +21,27 @@
             action="province_control_action"
             sequence="2"/>
 
+  <menuitem id="school_plan_root_menu"
+            name="院校招生计划"
+            parent="gaokao_root_menu"
+            action="school_plan_action"
+            sequence="3"/>
+
   <menuitem id="school_score_root_menu"
             name="院校分数线"
             parent="gaokao_root_menu"
             action="school_score_action"
-            sequence="3"/>
+            sequence="4"/>
 
   <menuitem id="sp_score_root_menu"
             name="专业分数线"
             parent="gaokao_root_menu"
             action="sp_score_action"
-            sequence="4"/>
+            sequence="5"/>
 
   <menuitem id="oneone_section_root_menu"
             name="一分一段表"
             parent="gaokao_root_menu"
             action="oneone_section_action"
-            sequence="5"/>
+            sequence="6"/>
 </odoo>

@@ -7,3 +7,4 @@ from . import province_control
 from . import school_score
 from . import sp_score
 from . import oneone_section
+from . import school_plan
