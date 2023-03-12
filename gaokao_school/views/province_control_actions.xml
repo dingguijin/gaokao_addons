@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
  
+    <record id="province_control_search_view" model="ir.ui.view">
+        <field name="name">gaokao.province_control.search</field>
+        <field name="model">gaokao.province_control</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter string="year" name="year" context="{'group_by': 'year'}" />
+                    <filter string="省" name="province_name" context="{'group_by': 'province_name'}" />
+                    <filter string="考生类型" name="type_name" context="{'group_by': 'type_name'}" />
+                    <filter string="录取批次" name="batch_name" context="{'group_by': 'batch_name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
   <record id="province_control_action" model="ir.actions.act_window">
     <field name="name">Province Control</field>
     <field name="res_model">gaokao.province_control</field>

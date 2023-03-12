@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="school_score_search_view" model="ir.ui.view">
-        <field name="name">gaokao.school_score.tree</field>
+        <field name="name">gaokao.school_score.search</field>
         <field name="model">gaokao.school_score</field>
         <field name="arch" type="xml">
             <search>
