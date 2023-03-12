@@ -32,4 +32,10 @@
             parent="gaokao_root_menu"
             action="sp_score_action"
             sequence="4"/>
+
+  <menuitem id="oneone_section_root_menu"
+            name="一分一段表"
+            parent="gaokao_root_menu"
+            action="oneone_section_action"
+            sequence="5"/>
 </odoo>

@@ -44,6 +44,12 @@
                 <field name="school_name"/>
                 <field name="year"/>
                 <field name="province_name" />
+                <field name="school_province_name" />
+                <field name="school_belong" />
+                <field name="school_is211" />
+                <field name="school_is985" />
+                <field name="school_isdual" />
+                <field name="school_isadmission" />
                 <field name="zslx_name" />
                 <field name="type_name" />
                 <field name="batch_name" />

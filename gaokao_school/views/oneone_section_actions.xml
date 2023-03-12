@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="oneone_section_action" model="ir.actions.act_window">
+    <field name="name">Oneone Section</field>
+    <field name="res_model">gaokao.oneone_section</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[]</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Looks like nothing is planned.
+        </p><p>
+        Import data into db.
+      </p>
+    </field>
+  </record>
+
+    <record id="oneone_section_view_tree" model="ir.ui.view">
+        <field name="name">gaokao.oneone_section.tree</field>
+        <field name="model">gaokao.oneone_section</field>
+        <field name="arch" type="xml">
+            <tree string="" multi_edit="1" sample="1">
+                <header>
+                    <button name="reload_data" string="Reload" type="object" display="always"/>
+                </header>
+
+                <field name="year"/>
+                <field name="name" />
+                <field name="rank" />
+                <field name="num" />
+                <field name="total" />
+                <field name="type_name" />
+                <field name="score_name" />
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="oneone_section_view_form" model="ir.ui.view">
+        <field name="name">gaokao.oneone_section.form</field>
+        <field name="model">gaokao.oneone_section</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="name"/>
+            </form>
+        </field>
+    </record>
+
+  <record id="oneone_section_action_view_tree" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="oneone_section_view_tree"/>
+    <field name="act_window_id" ref="oneone_section_action"/>
+  </record>
+
+  <record id="oneone_section_action_view_form" model="ir.actions.act_window.view">
+    <field name="sequence" eval="2"/>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="oneone_section_view_form"/>
+    <field name="act_window_id" ref="oneone_section_action"/>
+  </record>
+
+</odoo>

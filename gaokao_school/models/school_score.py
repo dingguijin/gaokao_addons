@@ -12,11 +12,24 @@ _provinces = ["北京", "天津", "河北", "山西", "内蒙古", "辽宁", "�
 
 class SchoolScore(models.Model):
     _name = 'gaokao.school_score'
-    name = fields.Char('name')
-    school_id = fields.Integer('院校ID')
-    school_name = fields.Char('院校名称')
 
-    province_name = fields.Char('省')
+    school_ref = fields.Many2one('gaokao.school', '院校REF', readonly=True)
+    name = fields.Char(related='school_ref.name')
+
+    school_id = fields.Integer(related='school_ref.school_id')
+    school_name = fields.Char(related='school_ref.name')
+    school_province_name = fields.Char(related='school_ref.province_name')
+    school_belong = fields.Char(related='school_ref.belong')
+    school_is211 = fields.Boolean(related='school_ref.is_211')
+    school_is985 = fields.Boolean(related='school_ref.is_985')
+    school_isdual = fields.Boolean(related='school_ref.is_dual')
+    school_isadmission = fields.Boolean(related='school_ref.is_admission')
+    school_nature_name = fields.Char(related='school_ref.nature_name') # 公办/民办
+
+    school_level_name = fields.Char(related='school_ref.level_name') # 普通本科/专科（高职）
+    school_type_name = fields.Char(related='school_ref.type_name') # 理工 农 医学
+
+    province_name = fields.Char('招生省份')
     province_id = fields.Integer('省ID')
     year = fields.Integer('年')
 
@@ -52,9 +65,7 @@ class SchoolScore(models.Model):
 
                 _record = {
                     "year": year,
-                    "school_id": int(_item["school_id"]),
-                    "school_name": schools[int(_item["school_id"])],
-                    "name": schools[int(_item["school_id"])],
+                    "school_ref": schools[int(_item["school_id"])],
 
                     "province_id": int(_item["province_id"]),
                     "province_name": provinces[int(_item["province_id"])],
@@ -89,7 +100,7 @@ class SchoolScore(models.Model):
         _schools_dict = {}
         _schools = self.env["gaokao.school"].search([])
         for _i in _schools:
-            _schools_dict[_i.school_id] = _i.name
+            _schools_dict[_i.school_id] = _i.id
 
         _provinces_dict = {}
         _provinces = self.env["gaokao.province"].search([])
