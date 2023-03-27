@@ -44,4 +44,90 @@
             parent="gaokao_root_menu"
             action="oneone_section_action"
             sequence="6"/>
+
+  <menuitem id="province_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="province_root_menu"
+            action="action_load_data_province"
+            sequence="6"/>
+
+  <menuitem id="school_main_sub_menu"
+            name="School"
+            parent="school_root_menu"
+            action="school_action"
+            sequence="6"/>
+
+  <menuitem id="school_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="school_root_menu"
+            action="action_load_data_school"
+            sequence="6"/>
+
+  <menuitem id="province_main_sub_menu"
+            name="Province"
+            parent="province_root_menu"
+            action="province_action"
+            sequence="6"/>
+  <menuitem id="provicne_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="province_root_menu"
+            action="action_load_data_province"
+            sequence="6"/>
+
+  <menuitem id="province_control_main_sub_menu"
+            name="Province Control"
+            parent="province_control_root_menu"
+            action="province_control_action"
+            sequence="6"/>
+  <menuitem id="provicne_control_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="province_control_root_menu"
+            action="action_load_data_province_control"
+            sequence="6"/>
+
+  <menuitem id="school_plan_main_sub_menu"
+            name="School Plan"
+            parent="school_plan_root_menu"
+            action="school_plan_action"
+            sequence="6"/>
+  <menuitem id="school_plan_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="school_plan_root_menu"
+            action="action_load_data_school_plan"
+            sequence="6"/>
+
+  <menuitem id="school_score_main_sub_menu"
+            name="School Score"
+            parent="school_score_root_menu"
+            action="school_score_action"
+            sequence="6"/>
+  <menuitem id="school_score_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="school_score_root_menu"
+            action="action_load_data_school_score"
+            sequence="6"/>
+
+  <menuitem id="sp_score_main_sub_menu"
+            name="Sp Score"
+            parent="sp_score_root_menu"
+            action="sp_score_action"
+            sequence="6"/>
+  <menuitem id="sp_score_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="sp_score_root_menu"
+            action="action_load_data_sp_score"
+            sequence="6"/>
+
+  <menuitem id="one_one_section_main_sub_menu"
+            name="One One Section"
+            parent="one_one_section_root_menu"
+            action="one_one_section_score_action"
+            sequence="6"/>
+  <menuitem id="one_one_section_load_data_sub_menu"
+            name="LOAD DATA"
+            parent="one_one_section_root_menu"
+            action="action_load_data_one_one_section"
+            sequence="6"/>
+
+
 </odoo>

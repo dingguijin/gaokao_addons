@@ -11,3 +11,5 @@ access_gaokao_sp_score_user,gaokao.school.user,model_gaokao_sp_score,group_gaoka
 access_gaokao_sp_score_manager,gaokao.school.manager,model_gaokao_sp_score,group_gaokao_manager,1,1,1,1
 access_gaokao_oneone_user,gaokao.school.user,model_gaokao_oneone_section,group_gaokao_user,1,1,1,1
 access_gaokao_oneone_manager,gaokao.school.manager,model_gaokao_oneone_section,group_gaokao_manager,1,1,1,1
+access_gaokao_school_plan_user,gaokao.school.user,model_gaokao_school_plan,group_gaokao_user,1,1,1,1
+access_gaokao_school_plan_manager,gaokao.school.manager,model_gaokao_school_plan,group_gaokao_manager,1,1,1,1

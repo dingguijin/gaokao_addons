@@ -7,8 +7,9 @@
             <search>
                 <group expand="0" string="Group By">
                     <filter string="year" name="year" context="{'group_by': 'year'}" />
-                    <filter string="省" name="province_name" context="{'group_by': 'province_name'}" />
-                    <filter string="学校" name="school_name" context="{'group_by': 'school_name'}" />
+                    <filter string="招生省份" name="province_name" context="{'group_by': 'province_name'}" />
+                    <filter string="院校省份" name="school_province_name" context="{'group_by': 'school_province_name'}" />
+                    <filter string="学校" name="name" context="{'group_by': 'name'}" />
                 </group>
             </search>
         </field>
@@ -38,7 +39,7 @@
                     <button name="reload_data" string="Reload" type="object" display="always"/>
                 </header>
 
-                <field name="school_name"/>
+                <field name="name"/>
                 <field name="year"/>
                 <field name="province_name" />
                 <field name="school_province_name" />

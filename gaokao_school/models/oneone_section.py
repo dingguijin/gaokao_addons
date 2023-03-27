@@ -23,8 +23,8 @@ class OneoneSection(models.Model):
     province_id = fields.Integer('省ID')
     year = fields.Integer('年')
 
-    type_name = fields.Char('type_name(文理)')
-    score_name = fields.Char('score_name(成绩类型)')
+    type_name = fields.Char('考生类型')
+    score_name = fields.Char('成绩类型')
     
     def _load_json_file(self, path, year, provinces, types):
     
@@ -91,7 +91,7 @@ class OneoneSection(models.Model):
             _types_dict[_i.type_id] = _i.type_name
 
 
-        _years = [2020, 2021, 2022]
+        _years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
         for _year in _years:
             _records = self._load_year(_year, _provinces_dict, _types_dict)
             _logger.info("oneone section load year: %s" % _year)

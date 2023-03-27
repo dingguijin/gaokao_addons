@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
  
+    <record id="sp_score_search_view" model="ir.ui.view">
+        <field name="name">gaokao.sp_score.search</field>
+        <field name="model">gaokao.sp_score</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter string="year" name="year" context="{'group_by': 'year'}" />
+                    <filter string="招生省份" name="province_name" context="{'group_by': 'province_name'}" />
+                    <filter string="院校省份" name="school_province_name" context="{'group_by': 'school_province_name'}" />
+                    <filter string="学校" name="name" context="{'group_by': 'name'}" />
+                    <filter string="专业" name="spname" context="{'group_by': 'spname'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
   <record id="sp_score_action" model="ir.actions.act_window">
-    <field name="name">Sp Score</field>
+    <field name="name">专业分数线</field>
     <field name="res_model">gaokao.sp_score</field>
     <field name="view_mode">tree,form</field>
     <field name="domain">[]</field>
@@ -25,8 +41,16 @@
                     <button name="reload_data" string="Reload" type="object" display="always"/>
                 </header>
 
+                <field name="province_name" />
                 <field name="name"/>
                 <field name="year"/>
+                <field name="sp_info"/>
+                <field name="spname" />
+                <field name="min_score" />
+                <field name="min_section" />
+                <field name="type_name" />
+                <field name="batch_name" />
+                <field name="zslx_name" />
 
             </tree>
         </field>

@@ -14,36 +14,38 @@ class SchoolScore(models.Model):
     _name = 'gaokao.school_score'
 
     school_ref = fields.Many2one('gaokao.school', '院校REF', readonly=True)
-    name = fields.Char(related='school_ref.name')
+    name = fields.Char(string="name", related='school_ref.name', store=True)
 
     school_id = fields.Integer(related='school_ref.school_id')
-    school_name = fields.Char(related='school_ref.name')
-    school_province_name = fields.Char(related='school_ref.province_name')
-    school_belong = fields.Char(related='school_ref.belong')
-    school_is211 = fields.Boolean(related='school_ref.is_211')
-    school_is985 = fields.Boolean(related='school_ref.is_985')
-    school_isdual = fields.Boolean(related='school_ref.is_dual')
-    school_isadmission = fields.Boolean(related='school_ref.is_admission')
-    school_nature_name = fields.Char(related='school_ref.nature_name') # 公办/民办
+    school_province_name = fields.Char(related='school_ref.province_name', store=True)
+    school_belong = fields.Char(related='school_ref.belong', store=True)
+    school_is211 = fields.Boolean(related='school_ref.is_211', store=True)
+    school_is985 = fields.Boolean(related='school_ref.is_985', store=True)
+    school_isdual = fields.Boolean(related='school_ref.is_dual', store=True)
+    school_isadmission = fields.Boolean(related='school_ref.is_admission', store=True)
+    school_nature_name = fields.Char(related='school_ref.nature_name', store=True) # 公办/民办
 
-    school_level_name = fields.Char(related='school_ref.level_name') # 普通本科/专科（高职）
-    school_type_name = fields.Char(related='school_ref.type_name') # 理工 农 医学
+    school_level_name = fields.Char(related='school_ref.level_name', store=True) # 普通本科/专科（高职）
+    school_type_name = fields.Char(related='school_ref.type_name', store=True) # 理工 农 医学
 
     province_name = fields.Char('招生省份')
     province_id = fields.Integer('省ID')
     year = fields.Integer('年')
 
     zslx_id = fields.Integer('招生类型ID')
-    zslx_name = fields.Char('招生类型(普通)')
+    zslx_name = fields.Char('招生类型')
 
     type_id = fields.Integer('type_id')
-    type_name = fields.Char('type_name(文理)')
+    type_name = fields.Char('考生类型')
     
-    batch_name = fields.Char('batch_name(录取批次)')
+    batch_name = fields.Char('录取批次')
     batch_id = fields.Integer('batch_id')
     
     min_score = fields.Integer('最低分')
     min_section = fields.Integer('最低排名')
+
+    sg_info = fields.Char('选科限制')
+    sg_name = fields.Char('选科限制')
 
     def _load_json_file(self, path, year, schools, provinces, types):
     
@@ -78,6 +80,9 @@ class SchoolScore(models.Model):
 
                     "zslx_id": int(_item["zslx"]),
                     "zslx_name": _item["zslx_name"],
+                    
+                    "sg_info": _item["sg_info"],
+                    "sg_name": _item["sg_name"],
 
                     "min_score": math.floor(float(_item["min"])),
                     "min_section": int(_item["min_section"])}

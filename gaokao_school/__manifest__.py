@@ -26,6 +26,7 @@
         'views/province_actions.xml',
         'views/province_control_actions.xml',
         'views/school_score_actions.xml',
+        'views/school_plan_actions.xml',
         'views/sp_score_actions.xml',
         'views/oneone_section_actions.xml',
         'views/menu.xml',

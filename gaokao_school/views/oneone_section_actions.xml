@@ -16,7 +16,7 @@
     </record>
 
   <record id="oneone_section_action" model="ir.actions.act_window">
-    <field name="name">Oneone Section</field>
+    <field name="name">一分一段表</field>
     <field name="res_model">gaokao.oneone_section</field>
     <field name="view_mode">tree,form</field>
     <field name="domain">[]</field>

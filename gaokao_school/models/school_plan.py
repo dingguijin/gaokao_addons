@@ -14,20 +14,19 @@ class SchoolPlan(models.Model):
     _name = 'gaokao.school_plan'
 
     school_ref = fields.Many2one('gaokao.school', '院校REF', readonly=True)
-    name = fields.Char(related='school_ref.name')
+    name = fields.Char(string="name", related='school_ref.name', store=True)
 
     school_id = fields.Integer(related='school_ref.school_id')
-    school_name = fields.Char(related='school_ref.name')
-    school_province_name = fields.Char(related='school_ref.province_name')
-    school_belong = fields.Char(related='school_ref.belong')
-    school_is211 = fields.Boolean(related='school_ref.is_211')
-    school_is985 = fields.Boolean(related='school_ref.is_985')
-    school_isdual = fields.Boolean(related='school_ref.is_dual')
-    school_isadmission = fields.Boolean(related='school_ref.is_admission')
-    school_nature_name = fields.Char(related='school_ref.nature_name') # 公办/民办
+    school_province_name = fields.Char(string='院校省份', related='school_ref.province_name', store=True)
+    school_belong = fields.Char(related='school_ref.belong', store=True)
+    school_is211 = fields.Boolean(related='school_ref.is_211', store=True)
+    school_is985 = fields.Boolean(related='school_ref.is_985', store=True)
+    school_isdual = fields.Boolean(related='school_ref.is_dual', store=True)
+    school_isadmission = fields.Boolean(related='school_ref.is_admission', store=True)
+    school_nature_name = fields.Char(related='school_ref.nature_name', store=True) # 公办/民办
 
-    school_level_name = fields.Char(related='school_ref.level_name') # 普通本科/专科（高职）
-    school_type_name = fields.Char(related='school_ref.type_name') # 理工 农 医学
+    school_level_name = fields.Char(related='school_ref.level_name', store=True) # 普通本科/专科（高职）
+    school_type_name = fields.Char(related='school_ref.type_name', store=True) # 理工 农 医学
 
     province_name = fields.Char('招生省份')
     province_id = fields.Integer('省ID')
@@ -38,7 +37,7 @@ class SchoolPlan(models.Model):
     batch_name = fields.Char('batch_name(录取批次)')
 
     num = fields.Integer('数量')
-    length = fields.Integer('学制')
+    length = fields.Char('学制')
     spname = fields.Char('专业')
     spcode = fields.Char('专业')
     tuition = fields.Integer('学费')
@@ -46,36 +45,46 @@ class SchoolPlan(models.Model):
 
     def _load_json_file(self, path, year, schools):
     
+        _logger.info(path)
         _records = []
         with open(path) as _file:
             _data = _file.read() or "{}"
             _data = _data.replace("null", "\"\"")
+            if not _data:
+                return []
+
             _data = eval(_data)
             if not _data:
                 return []
 
-            _items = _data["data"]["item"]
-            if not _items:
-                return []
+            for _items_data in _data:
+                if not _items_data:
+                    continue
 
-            for _item in _items:
+                _items = _items_data["data"]["item"]
+                if not _items:
+                    return []
 
-                _record = {
-                    "year": year,
-                    "school_ref": schools[int(_item["school_id"])],
+                for _item in _items:
 
-                    "province_name": _item["province_name"],
-                    "type_name": _item["local_type_name"],
-                    "batch_name": _item["local_batch_name"],
-                    
-                    "spcode": _item["spcode"],
-                    "spname": _item["spname"],
+                    if _item["num"] == "-":
+                        _item["num"] = 0
+                    _record = {
+                        "year": year,
+                        "school_ref": schools[int(_item["school_id"])],
 
-                    "tuition": int(_item["tuition"]),
-                    "length": int(_item["length"]),
-                    "num": int(_item["num"])}
+                        "province_name": _item["province_name"],
+                        "type_name": _item["local_type_name"],
+                        "batch_name": _item["local_batch_name"],
+                        
+                        "spcode": _item["spcode"],
+                        "spname": _item["spname"],
 
-                _records.append(_record)
+                        "tuition": int(_item["tuition"]),
+                        "length": _item["length"],
+                        "num": int(_item["num"])}
+
+                    _records.append(_record)
         return _records
 
     def _load_year(self, year, schools):
@@ -96,7 +105,7 @@ class SchoolPlan(models.Model):
         for _i in _schools:
             _schools_dict[_i.school_id] = _i.id
 
-        _years = [2022]
+        _years = [2020, 2021, 2022]
         for _year in _years:
             _records = self._load_year(_year, _schools_dict)
             for _record in _records:

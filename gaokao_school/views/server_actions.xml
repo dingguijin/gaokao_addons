@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="action_load_data_province" model="ir.actions.server">
+      <field name="name">Load Data</field>
+      <field name="model_id" ref="model_gaokao_province"/>
+      <field name="state">code</field>
+      <field name="code">self.env['gaokao.province'].sync()</field>
+    </record>
+    
+    <record id="action_load_data_school" model="ir.actions.server">
+      <field name="name">Load Data</field>
+      <field name="model_id" ref="model_gaokao_school"/>
+      <field name="state">code</field>
+      <field name="code">self.env['gaokao.school'].sync()</field>
+    </record>
+
+    <record id="action_load_data_province_control" model="ir.actions.server">
+      <field name="name">Load Data</field>
+      <field name="model_id" ref="model_gaokao_province_control"/>
+      <field name="state">code</field>
+      <field name="code">self.env['gaokao.province_control'].sync()</field>
+    </record>
+
+    <record id="action_load_data_school_plan" model="ir.actions.server">
+      <field name="name">Load Data</field>
+      <field name="model_id" ref="model_gaokao_school_plan"/>
+      <field name="state">code</field>
+      <field name="code">self.env['gaokao.school_plan'].sync()</field>
+    </record>
+
+    <record id="action_load_data_school_score" model="ir.actions.server">
+      <field name="name">Load Data</field>
+      <field name="model_id" ref="model_gaokao_school_score"/>
+      <field name="state">code</field>
+      <field name="code">self.env['gaokao.school_score'].sync()</field>
+    </record>
+
+    <record id="action_load_data_sp_score" model="ir.actions.server">
+      <field name="name">Load Data</field>
+      <field name="model_id" ref="model_gaokao_sp_score"/>
+      <field name="state">code</field>
+      <field name="code">self.env['gaokao.sp_score'].sync()</field>
+    </record>
+
+  </data>
+</odoo>
