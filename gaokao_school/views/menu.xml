@@ -42,13 +42,6 @@
   <menuitem id="oneone_section_root_menu"
             name="一分一段表"
             parent="gaokao_root_menu"
-            action="oneone_section_action"
-            sequence="6"/>
-
-  <menuitem id="province_load_data_sub_menu"
-            name="LOAD DATA"
-            parent="province_root_menu"
-            action="action_load_data_province"
             sequence="6"/>
 
   <menuitem id="school_main_sub_menu"
@@ -68,6 +61,7 @@
             parent="province_root_menu"
             action="province_action"
             sequence="6"/>
+
   <menuitem id="provicne_load_data_sub_menu"
             name="LOAD DATA"
             parent="province_root_menu"
@@ -79,6 +73,7 @@
             parent="province_control_root_menu"
             action="province_control_action"
             sequence="6"/>
+
   <menuitem id="provicne_control_load_data_sub_menu"
             name="LOAD DATA"
             parent="province_control_root_menu"
@@ -118,15 +113,16 @@
             action="action_load_data_sp_score"
             sequence="6"/>
 
-  <menuitem id="one_one_section_main_sub_menu"
+  <menuitem id="oneone_section_main_sub_menu"
             name="One One Section"
-            parent="one_one_section_root_menu"
-            action="one_one_section_score_action"
+            parent="oneone_section_root_menu"
+            action="oneone_section_action"
             sequence="6"/>
-  <menuitem id="one_one_section_load_data_sub_menu"
+
+  <menuitem id="oneone_section_load_data_sub_menu"
             name="LOAD DATA"
-            parent="one_one_section_root_menu"
-            action="action_load_data_one_one_section"
+            parent="oneone_section_root_menu"
+            action="action_load_data_oneone_section"
             sequence="6"/>
 
 

@@ -73,7 +73,7 @@ class School(models.Model):
         }
         return _record
 
-    def reload_school_data(self):
+    def reload_data(self):
         _set = self.env["gaokao.school"].search([])
         _set.unlink()
 

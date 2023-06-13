@@ -3,7 +3,7 @@
     <t t-name="gaokao_school.ListButtons" t-inherit="web.ListView.Buttons" t-inherit-mode="primary" owl="1">
 
         <xpath expr="//button[hasclass('o_list_button_add')]" position="after">
-            <button type="object" name="reload_school_data" class="d-none d-md-inline o_button_upload_expense btn btn-primary mx-1"> 
+            <button type="object" name="reload_data" class="d-none d-md-inline o_button_upload_expense btn btn-primary mx-1"> 
                Reload 
             </button>
         </xpath>

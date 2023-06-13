@@ -4,7 +4,7 @@
 import os
 import math
 import logging
-from odoo import models, fields
+from odoo import models, fields, api
 
 _logger = logging.getLogger(__name__)
 _json_data_dir = os.path.join(os.path.dirname(__file__), "../../json_data")
@@ -76,6 +76,7 @@ class OneoneSection(models.Model):
                 _records += self._load_json_file(os.path.join(_path, _json_file), year, provinces, types)
         return _records
 
+    @api.model
     def reload_data(self):
         _set = self.env["gaokao.oneone_section"].search([])
         _set.unlink()

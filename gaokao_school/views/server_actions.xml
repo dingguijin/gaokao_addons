@@ -5,43 +5,49 @@
       <field name="name">Load Data</field>
       <field name="model_id" ref="model_gaokao_province"/>
       <field name="state">code</field>
-      <field name="code">self.env['gaokao.province'].sync()</field>
+      <field name="code">model.reload_data()</field>
     </record>
     
     <record id="action_load_data_school" model="ir.actions.server">
       <field name="name">Load Data</field>
       <field name="model_id" ref="model_gaokao_school"/>
       <field name="state">code</field>
-      <field name="code">self.env['gaokao.school'].sync()</field>
+      <field name="code">model.reload_data()</field>
     </record>
 
     <record id="action_load_data_province_control" model="ir.actions.server">
       <field name="name">Load Data</field>
       <field name="model_id" ref="model_gaokao_province_control"/>
       <field name="state">code</field>
-      <field name="code">self.env['gaokao.province_control'].sync()</field>
+      <field name="code">model.reload_data()</field>
     </record>
 
     <record id="action_load_data_school_plan" model="ir.actions.server">
       <field name="name">Load Data</field>
       <field name="model_id" ref="model_gaokao_school_plan"/>
       <field name="state">code</field>
-      <field name="code">self.env['gaokao.school_plan'].sync()</field>
+      <field name="code">model.reload_data()</field>
     </record>
 
     <record id="action_load_data_school_score" model="ir.actions.server">
       <field name="name">Load Data</field>
       <field name="model_id" ref="model_gaokao_school_score"/>
       <field name="state">code</field>
-      <field name="code">self.env['gaokao.school_score'].sync()</field>
+      <field name="code">model.reload_data()</field>
     </record>
 
     <record id="action_load_data_sp_score" model="ir.actions.server">
       <field name="name">Load Data</field>
       <field name="model_id" ref="model_gaokao_sp_score"/>
       <field name="state">code</field>
-      <field name="code">self.env['gaokao.sp_score'].sync()</field>
+      <field name="code">model.reload_data()</field>
     </record>
 
+    <record id="action_load_data_oneone_section" model="ir.actions.server">
+      <field name="name">Load Data</field>
+      <field name="model_id" ref="model_gaokao_oneone_section"/>
+      <field name="state">code</field>
+      <field name="code">model.reload_data()</field>
+    </record>
   </data>
 </odoo>

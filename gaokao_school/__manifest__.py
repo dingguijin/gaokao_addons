@@ -29,6 +29,7 @@
         'views/school_plan_actions.xml',
         'views/sp_score_actions.xml',
         'views/oneone_section_actions.xml',
+        'views/server_actions.xml',
         'views/menu.xml',
     ],
     'assets': {

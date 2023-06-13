@@ -35,9 +35,6 @@
         <field name="model">gaokao.oneone_section</field>
         <field name="arch" type="xml">
             <tree string="" multi_edit="1" sample="1">
-                <header>
-                    <button name="reload_data" string="Reload" type="object" display="always"/>
-                </header>
 
                 <field name="year"/>
                 <field name="province_name"/>

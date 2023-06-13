@@ -21,9 +21,6 @@
         <field name="model">gaokao.school</field>
         <field name="arch" type="xml">
             <tree string="" multi_edit="1" sample="1" js_class="gaokao_school_tree">
-                <header>
-                    <button name="reload_school_data" string="Reload Header" type="object" display="always"/>
-                </header>
 
                 <field name="name"/>
                 <field name="belong"/>
